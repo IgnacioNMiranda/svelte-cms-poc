@@ -4,27 +4,30 @@
 	export let props: OrHeroBannerProps;
 </script>
 
-<h1 class="block text-2xl font-bold text-white sm:text-4xl">Cover Page</h1>
-<p class="mt-3 text-lg text-gray-300">
-	Cover is a one-page template for building simple and beautiful home pages using Tailwind CSS.
-</p>
-<div class="mt-5 flex flex-col justify-center items-center gap-2 sm:flex-row sm:gap-3">
-	<a
-		class="w-full sm:w-auto py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-white text-gray-800 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-		href="#"
+<section class="bg-white dark:bg-gray-900 border-b-[0.5px] px-8">
+	<div
+		class="grid max-w-screen-xl pb-8 pt-4 mx-auto gap-4 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
 	>
-		<svg
-			class="flex-shrink-0 w-4 h-4"
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="2"
-			stroke-linecap="round"
-			stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg
+		<div
+			class={`mr-auto place-self-center lg:col-span-6  ${
+				props.assetPosition === 'left' ? 'order-last lg:col-start-7' : 'order-first'
+			}`}
 		>
-		Back to examples
-	</a>
-</div>
+			<h1
+				class="text-left max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
+			>
+				{props.title}
+			</h1>
+			<div
+				class="text-left max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
+			>
+				<slot name="blurb" />
+			</div>
+		</div>
+		<div
+			class={`mt-0 lg:col-span-5 ${props.assetPosition === 'left' ? '' : 'lg:col-start-8'} lg:flex`}
+		>
+			<img src={props.asset.src} alt={props.asset.alt || 'Hero Banner Image'} />
+		</div>
+	</div>
+</section>

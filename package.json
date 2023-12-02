@@ -12,6 +12,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@contentful/rich-text-types": "^16.3.0",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.27.4",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -32,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@contentful/rich-text-html-renderer": "^16.3.0",
 		"contentful": "^10.6.13"
 	}
 }

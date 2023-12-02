@@ -5,8 +5,12 @@
 	export let props: TmFlexProps;
 </script>
 
-<div class="text-center py-10 px-4 sm:px-6 lg:px-8">
+<div class="text-center py-10">
 	{#each props.blocks ?? [] as block}
-		<OrHeroBanner props={block} />
+		<OrHeroBanner props={block}>
+			<svelte:fragment slot="blurb">
+				{@html block.blurb}
+			</svelte:fragment>
+		</OrHeroBanner>
 	{/each}
 </div>

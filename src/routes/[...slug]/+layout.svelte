@@ -9,7 +9,11 @@
 	export let data: { page: PgPageProps };
 </script>
 
-<div class="flex flex-col min-h-screen">
+<svelte:head>
+	<title>{data.page.title}</title>
+</svelte:head>
+
+<div class="flex flex-col min-h-screen bg-gray-900">
 	<OrHeader props={data.page.header} />
 	<main class="flex-1">
 		<slot />

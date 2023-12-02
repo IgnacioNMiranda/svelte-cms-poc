@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@contentful/rich-text-html-renderer':
+    specifier: ^16.3.0
+    version: 16.3.0
+  '@contentful/rich-text-types':
+    specifier: ^16.3.0
+    version: 16.3.0
   contentful:
     specifier: ^10.6.13
     version: 10.6.13
@@ -81,6 +87,14 @@ packages:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.20
     dev: true
+
+  /@contentful/rich-text-html-renderer@16.3.0:
+    resolution: {integrity: sha512-cIrXf1jcubnWJCROwX8xsRVDbZUIZx+SlOPylsmMcNgvwqpxO5vYX/+8B7RRS8/nFyHRR36me2ECyWS6GnaLLA==}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      '@contentful/rich-text-types': 16.3.0
+      escape-html: 1.0.3
+    dev: false
 
   /@contentful/rich-text-types@16.3.0:
     resolution: {integrity: sha512-OfQmAu5bxE0CgQA3WlUleVej+ifFG/iXmB2DmUl4EyWyFue1aiIvfjxQhcDRSH4n1jUNMJ6L1wInZL8uV5m3TQ==}
@@ -1025,6 +1039,10 @@ packages:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
     engines: {node: '>=6'}
     dev: true
+
+  /escape-html@1.0.3:
+    resolution: {integrity: sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==}
+    dev: false
 
   /escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
