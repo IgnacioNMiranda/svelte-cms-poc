@@ -8,14 +8,14 @@ dependencies:
   '@contentful/rich-text-html-renderer':
     specifier: ^16.3.0
     version: 16.3.0
-  '@contentful/rich-text-types':
-    specifier: ^16.3.0
-    version: 16.3.0
   contentful:
     specifier: ^10.6.13
     version: 10.6.13
 
 devDependencies:
+  '@contentful/rich-text-types':
+    specifier: ^16.3.0
+    version: 16.3.0
   '@sveltejs/adapter-auto':
     specifier: ^2.0.0
     version: 2.1.1(@sveltejs/kit@1.27.6)
@@ -99,7 +99,6 @@ packages:
   /@contentful/rich-text-types@16.3.0:
     resolution: {integrity: sha512-OfQmAu5bxE0CgQA3WlUleVej+ifFG/iXmB2DmUl4EyWyFue1aiIvfjxQhcDRSH4n1jUNMJ6L1wInZL8uV5m3TQ==}
     engines: {node: '>=6.0.0'}
-    dev: false
 
   /@esbuild/android-arm64@0.18.20:
     resolution: {integrity: sha512-Nz4rJcchGDtENV0eMKUNa6L12zz2zBDXuhj/Vjh18zGqB44Bi7MBMSXjgunJgjRhCmKOjnPuZp4Mb6OKqtMHLQ==}
