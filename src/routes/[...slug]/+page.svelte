@@ -1,8 +1,17 @@
-<script>
-	import PgPage from '$lib/components/pages/pg-page/pg-page.svelte';
+<script lang="ts">
+	import '$lib/styles/tailwind.css';
+
+	import TmFlex from '$lib/components/templates/tm-flex/tm-flex.svelte';
+	import type { PgPageProps } from '$lib/components/page.types';
 
 	/** @type {import('./$types').PageData} */
-	export let data;
+	export let data: { page: PgPageProps };
 </script>
 
-<PgPage props={data.page} />
+{#if data.page.template.type === 'flex'}
+	<TmFlex props={data.page.template} />
+{:else if data.page.template.type === 'sidebar'}
+	Sidebar
+{:else}
+	<TmFlex props={data.page.template} />
+{/if}

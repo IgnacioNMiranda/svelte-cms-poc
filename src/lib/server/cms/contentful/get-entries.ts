@@ -1,4 +1,4 @@
-import { cleanContentfulEntry } from './normalize';
+import { cleanContentfulEntry } from './normalization/clean-contentful-entry';
 import { getClient } from './client';
 import type { ContentfulPage } from './content-types/pages/page';
 

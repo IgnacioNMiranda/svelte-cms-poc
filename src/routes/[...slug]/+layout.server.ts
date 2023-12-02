@@ -12,5 +12,6 @@ import { error } from '@sveltejs/kit';
 		});
 	}
 
+	// This HAS to be an object. We cannot just return page
 	return { page };
 }
