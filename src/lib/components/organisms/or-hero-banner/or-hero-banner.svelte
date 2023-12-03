@@ -4,7 +4,7 @@
 	export let props: OrHeroBannerProps;
 </script>
 
-<section class="bg-white dark:bg-gray-900 border-b-[0.5px] px-8">
+<section class="bg-gray-900 border-b-[0.5px] px-8">
 	<div
 		class="grid max-w-screen-xl pb-8 pt-4 mx-auto gap-4 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
 	>
@@ -14,13 +14,11 @@
 			}`}
 		>
 			<h1
-				class="text-left max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
+				class="text-left max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white"
 			>
 				{props.title}
 			</h1>
-			<div
-				class="text-left max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
-			>
+			<div class="text-left max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-gray-400">
 				<slot name="blurb" />
 			</div>
 		</div>

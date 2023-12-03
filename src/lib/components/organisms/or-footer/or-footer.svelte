@@ -10,9 +10,7 @@
 	>
 		<span class="text-sm sm:text-center text-white">© {props.copyright} </span>
 		{#if props.links && props.links.length}
-			<ul
-				class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
-			>
+			<ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-400 sm:mt-0">
 				{#each props.links as link}
 					<li>
 						<a
