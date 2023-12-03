@@ -16,15 +16,15 @@
 			</a>
 			{#if props.links && props.links.length}
 				<div
-					class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+					class="justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
 					id="mobile-menu-2"
 				>
-					<ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+					<ul class="flex flex-row mt-4 font-medium lg:space-x-8 lg:mt-0 flex-wrap">
 						{#each props.links as link}
 							<li>
 								<a
 									href={link.url}
-									class="block py-2 pr-4 pl-3 text-white hover:underline transition-colors hover:text-[#223F59] lg:p-0"
+									class="pr-4 text-white hover:underline transition-colors hover:text-[#223F59] lg:p-0"
 									aria-current="page">{link.label}</a
 								>
 							</li>
