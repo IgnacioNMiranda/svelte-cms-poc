@@ -20,11 +20,17 @@ export const getAllSlugs = async () => {
 		select: 'fields.slug'
 	});
 
-	return items.map((item) => item.fields.slug);
+	return items.map((item) => {
+		if (item.fields.slug === '/') return 'index';
+		return item.fields.slug;
+	}) as string[];
 };
 
 export const getPageBySlug = async (slug: string): Promise<ContentfulPage | null> => {
-	const collection = await getPageEntries({ 'fields.slug': slug, include: 10 });
+	const collection = await getPageEntries({
+		'fields.slug': slug === 'index' ? '/' : slug,
+		include: 10
+	});
 
 	const page = collection?.items && collection.items?.length ? collection.items[0] : null;
 

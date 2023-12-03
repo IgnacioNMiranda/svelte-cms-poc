@@ -1,4 +1,4 @@
 export interface ContentType {
-	cmsId: string;
-	cmsType: string;
+	contentfulId: string;
+	contentType: string;
 }

@@ -21,9 +21,9 @@ export const cleanContentfulEntry = <T>(data: Entry): T => {
 	const result: FieldsType = {};
 
 	if (getType(data) === 'contentful-object') {
-		result.cmsId = sys.id;
+		result.contentfulId = sys.id;
 
-		if (sys.contentType) result.cmsType = sys.contentType.sys.id;
+		if (sys.contentType) result.contentType = sys.contentType.sys.id;
 	}
 
 	// TODO: Just for Ninetailed. To delete.

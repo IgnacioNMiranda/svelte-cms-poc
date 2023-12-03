@@ -13,10 +13,10 @@ export const contentfulPageToProps = (page: ContentfulPage): PgPageProps => {
 			links: page.header.links
 		},
 		template: {
-			type: page.template.cmsType === 'templateFlex' ? 'flex' : 'flex',
+			type: page.template.contentType === 'templateFlex' ? 'flex' : 'flex',
 			blocks: page.template.blocks
 				.map((block) => {
-					if (block.cmsType === 'heroBanner') return normalizeHeroBanner(block);
+					if (block.contentType === 'heroBanner') return normalizeHeroBanner(block);
 					return null;
 				})
 				.filter(Boolean) as TmFlexProps['blocks']
