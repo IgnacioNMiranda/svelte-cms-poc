@@ -11,11 +11,7 @@
 				href={props.logoUrl}
 				class="flex items-center hover:underline transition-colors text-white hover:text-[#223F59]"
 			>
-				<img
-					src="https://cdn2.steamgriddb.com/logo_thumb/dc8a19a19e402c8e83c7684c54d32dc1.png"
-					class="mr-3 h-6 sm:h-9"
-					alt="My Awesome Site Logo"
-				/>
+				<img src="/favicon.png" class="mr-3 h-6 sm:h-9" alt="My Awesome Site Logo" />
 				<span class="self-center text-xl font-semibold whitespace-nowrap">{props.logoTitle}</span>
 			</a>
 			{#if props.links && props.links.length}
