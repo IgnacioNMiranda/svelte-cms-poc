@@ -1,22 +1,11 @@
 <script lang="ts">
 	import '$lib/styles/tailwind.css';
 
-	import OrHeader from '$lib/components/organisms/or-header/or-header.svelte';
-	import OrFooter from '$lib/components/organisms/or-footer/or-footer.svelte';
 	import type { PgPageProps } from '$lib/components/page.types';
+	import Layout from '$lib/components/layouts/layout.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data: { page: PgPageProps };
 </script>
 
-<svelte:head>
-	<title>{data.page.title}</title>
-</svelte:head>
-
-<div class="flex flex-col min-h-screen bg-gray-900">
-	<OrHeader props={data.page.header} />
-	<main class="flex-1">
-		<slot />
-	</main>
-	<OrFooter props={data.page.footer} />
-</div>
+<Layout props={data.page}><slot /></Layout>

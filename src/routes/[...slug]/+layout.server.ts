@@ -7,8 +7,18 @@ import { error } from '@sveltejs/kit';
 	const page = await getPage(slug);
 
 	if (!page) {
-		throw error(404, {
-			message: 'Not found'
+		let notFound = false;
+		let errorPage = await getPage('404');
+		if (errorPage) notFound = true;
+		else errorPage = await getPage('500');
+
+		const code = notFound ? 404 : 500;
+		const message = notFound ? 'Not found' : 'Server Error';
+
+		throw error(code, {
+			message,
+			code,
+			page: errorPage ?? null
 		});
 	}
 
