@@ -34,6 +34,7 @@
 	"type": "module",
 	"dependencies": {
 		"@contentful/rich-text-html-renderer": "^16.3.0",
-		"contentful": "^10.6.13"
+		"contentful": "^10.6.13",
+		"storyblok-js-client": "^6.3.0"
 	}
 }

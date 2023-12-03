@@ -11,6 +11,9 @@ dependencies:
   contentful:
     specifier: ^10.6.13
     version: 10.6.13
+  storyblok-js-client:
+    specifier: ^6.3.0
+    version: 6.3.0
 
 devDependencies:
   '@contentful/rich-text-types':
@@ -2102,6 +2105,10 @@ packages:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /storyblok-js-client@6.3.0:
+    resolution: {integrity: sha512-hOaAoDoUC3ncCwhHbtJ+YkcmKGTAjJomO4kW0LB8dZ0tIoQfDC2B9Q6y5Nw6/bBdxvU37Xg4FwHRVYqKuhEkvw==}
+    dev: false
 
   /strip-ansi@6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
