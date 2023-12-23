@@ -21,9 +21,14 @@ export const getAllSlugs = async () => {
 	});
 
 	return items.map((item) => {
-		if (item.fields.slug === '/') return 'index';
-		return item.fields.slug;
-	}) as string[];
+		let slug = item.fields.slug as string;
+
+		if (item.fields.slug === '/') slug = 'index';
+		else if (item.fields.slug === 'notFound') slug = '404';
+		else if (item.fields.slug === 'serverError') slug = '500';
+
+		return { slug };
+	});
 };
 
 export const getPageBySlug = async (slug: string): Promise<ContentfulPage | null> => {

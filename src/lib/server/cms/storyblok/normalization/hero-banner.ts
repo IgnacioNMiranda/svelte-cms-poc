@@ -1,6 +1,6 @@
 import type { OrHeroBannerProps } from '../../../../components/organisms/or-hero-banner/or-hero-banner.types';
 import type { HeroBannerStoryblok } from '../types';
-import { renderRichText } from '@storyblok/js';
+import { normalizeRichTextStoryblok } from './rich-text';
 
 export const normalizeHeroBannerStoryblok = (
 	heroBanner: HeroBannerStoryblok
@@ -8,7 +8,7 @@ export const normalizeHeroBannerStoryblok = (
 	return {
 		component: 'heroBanner',
 		title: heroBanner.title,
-		blurb: renderRichText(heroBanner.blurb),
+		blurb: normalizeRichTextStoryblok(heroBanner.blurb),
 		asset: {
 			src: heroBanner.asset.filename,
 			alt: heroBanner.asset.alt

@@ -26,6 +26,12 @@ module.exports = {
 			parserOptions: {
 				parser: '@typescript-eslint/parser'
 			}
+		},
+		{
+			files: ['./src/lib/server/cms/storyblok/types.d.ts'],
+			rules: {
+				'@typescript-eslint/no-explicit-any': 'off'
+			}
 		}
 	]
 };
