@@ -1,30 +1,32 @@
 import type { PgPageProps } from '../../../components/page.types';
 import type { TmFlexProps } from '../../../components/templates/tm-flex/tm-flex.types';
-import type { ContentfulPage } from './content-types/pages/page';
-import { normalizeHeroBanner } from './normalization/hero-banner';
+import type { TypePage } from './types';
 
-export const contentfulPageToProps = (page: ContentfulPage): PgPageProps => {
+import { normalizeHeroBanner } from './normalization/hero-banner';
+import { normalizeFooter } from './normalization/footer';
+import { normalizeHeader } from './normalization/header';
+
+export const contentfulPageToProps = (
+	page: TypePage<'WITHOUT_UNRESOLVABLE_LINKS', string>
+): PgPageProps | null => {
+	if (!page.fields.header || !page.fields.footer || !page.fields.template) return null;
+
 	const pageProps: PgPageProps = {
-		title: page.title,
-		slug: page.slug,
-		header: {
-			logoTitle: page.header.logoTitle,
-			logoUrl: page.header.logoUrl,
-			links: page.header.links
-		},
+		component: 'page',
+		title: page.fields.title,
+		slug: page.fields.slug,
+		header: normalizeHeader(page.fields.header),
 		template: {
-			type: page.template.contentType === 'templateFlex' ? 'flex' : 'flex',
-			blocks: page.template.blocks
+			component: 'templateFlex',
+			type: page.fields.template.sys.contentType.sys.id === 'templateFlex' ? 'flex' : 'flex',
+			blocks: page.fields.template.fields.blocks
 				.map((block) => {
-					if (block.contentType === 'heroBanner') return normalizeHeroBanner(block);
+					if (block?.sys.contentType.sys.id === 'heroBanner') return normalizeHeroBanner(block);
 					return null;
 				})
 				.filter(Boolean) as TmFlexProps['blocks']
 		},
-		footer: {
-			copyright: page.footer.copyright,
-			links: page.footer.links
-		}
+		footer: normalizeFooter(page.fields.footer)
 	};
 	return pageProps;
 };

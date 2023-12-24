@@ -5,7 +5,7 @@ const renderNode: RenderNode = {
 	[INLINES.HYPERLINK]: (node, next) => {
 		return `<a class="text-white hover:underline hover:text-[#FDB05A] transition-colors" href=${
 			node.data.uri
-		}>${next(node.content)}</a>`;
+		} ${node.data.uri.startsWith('http') ? 'target="_blank"' : ''}>${next(node.content)}</a>`;
 	}
 };
 

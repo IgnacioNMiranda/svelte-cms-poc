@@ -1,9 +1,14 @@
-import { cleanContentfulEntry } from './normalization/clean-contentful-entry';
 import { getClient } from './client';
-import type { ContentfulPage } from './content-types/pages/page';
+import type { PgPageProps } from '../../../components/page.types';
+import { contentfulPageToProps } from './page-to-props';
+import type { TypePageSkeleton } from './types';
+import type { EntrySkeletonType } from 'contentful';
 
-const getEntries = async (contentType: string, query?: Record<string, unknown>) => {
-	const result = await getClient().getEntries({
+const getEntries = async <T extends EntrySkeletonType>(
+	contentType: string,
+	query?: Record<string, unknown>
+) => {
+	const result = await getClient().getEntries<T>({
 		content_type: contentType,
 		...query
 	});
@@ -12,7 +17,7 @@ const getEntries = async (contentType: string, query?: Record<string, unknown>) 
 };
 
 const getPageEntries = (query: Record<string, unknown>) => {
-	return getEntries('page', query);
+	return getEntries<TypePageSkeleton>('page', query);
 };
 
 export const getAllSlugs = async () => {
@@ -31,7 +36,7 @@ export const getAllSlugs = async () => {
 	});
 };
 
-export const getPageBySlug = async (slug: string): Promise<ContentfulPage | null> => {
+export const getPageBySlug = async (slug: string): Promise<PgPageProps | null> => {
 	const collection = await getPageEntries({
 		'fields.slug': slug === 'index' ? '/' : slug,
 		include: 10
@@ -40,7 +45,7 @@ export const getPageBySlug = async (slug: string): Promise<ContentfulPage | null
 	const page = collection?.items && collection.items?.length ? collection.items[0] : null;
 
 	if (page) {
-		return cleanContentfulEntry(page) as ContentfulPage;
+		return contentfulPageToProps(page);
 	}
 	return null;
 };

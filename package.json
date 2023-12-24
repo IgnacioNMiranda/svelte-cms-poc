@@ -15,10 +15,6 @@
 		"pull-sb-schema": "source .env && storyblok pull-components --space $STORYBLOK_SPACE_ID",
 		"gen-sb-types": "source .env && storyblok-generate-ts source=./components.$STORYBLOK_SPACE_ID.json target=./src/lib/server/cms/storyblok/types"
 	},
-	"engines": {
-		"node": "20.10.0",
-		"npm": "10.2.3"
-	},
 	"devDependencies": {
 		"@contentful/rich-text-types": "16.3.0",
 		"@sveltejs/adapter-auto": "3.0.1",
@@ -48,6 +44,7 @@
 	"dependencies": {
 		"@contentful/rich-text-html-renderer": "16.3.0",
 		"@storyblok/js": "3.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.1",
 		"clone-deep": "4.0.1",
 		"contentful": "10.6.14"
 	}
