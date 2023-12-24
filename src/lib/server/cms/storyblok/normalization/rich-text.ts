@@ -13,7 +13,8 @@ schema.marks.link = (node) => {
 					...object.tag[0],
 					attrs: {
 						...object.tag[0].attrs,
-						class: 'text-white hover:underline hover:text-[#FDB05A] transition-colors'
+						class: 'text-white hover:underline hover:text-[#FDB05A] transition-colors',
+						target: object.tag[0].attrs.href.startsWith('http') ? '_blank' : '_self'
 					}
 				}
 			]
